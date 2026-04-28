@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EgyptB2B.Api/EgyptB2B.Api.csproj" />
+    <Project Path="src/EgyptB2B.Application/EgyptB2B.Application.csproj" />
+    <Project Path="src/EgyptB2B.Domain/EgyptB2B.Domain.csproj" />
+    <Project Path="src/EgyptB2B.Infrastructure/EgyptB2B.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/EgyptB2B.Api.Tests/EgyptB2B.Api.Tests.csproj" />
+    <Project Path="tests/EgyptB2B.Application.Tests/EgyptB2B.Application.Tests.csproj" />
+  </Folder>
+</Solution>
