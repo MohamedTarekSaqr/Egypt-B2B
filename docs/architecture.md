@@ -67,7 +67,13 @@ JWT bearer authentication and these policies are configured:
 - `SupplierOnly`
 - `BuyerOnly`
 
-Actual register/login endpoints are planned for the next feature slice.
+Implemented authentication endpoints:
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `GET /api/auth/me`
+
+Self-registration only allows `Supplier` and `Buyer`. `Admin` is intentionally excluded from public registration.
 
 ## Design Decisions
 
@@ -76,3 +82,4 @@ Actual register/login endpoints are planned for the next feature slice.
 - Keep supplier and product approval statuses explicit in domain enums.
 - Use soft delete for products so product history and inquiry references can remain stable.
 - Start with SQL Server indexes and simple filters; full-text search can be added when search requirements mature.
+- Keep Identity usage inside Infrastructure through `IAuthenticationService`; controllers do not call `UserManager` directly.

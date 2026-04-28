@@ -10,7 +10,9 @@ Backend foundation is in place:
 - Clean Architecture projects: Domain, Application, Infrastructure, API
 - SQL Server persistence with EF Core
 - ASP.NET Core Identity with `Admin`, `Supplier`, and `Buyer` roles
-- JWT configuration and policy wiring
+- User registration and login with JWT issuance
+- Role assignment for `Supplier` and `Buyer` self-registration
+- JWT configuration and authorization policy wiring
 - Initial database migration
 - Health endpoint
 - Smoke tests for API and Application layers
@@ -134,7 +136,6 @@ http://localhost:5088/swagger
 
 Planned backend features:
 
-- User registration and login
 - Role-based access for Admin, Supplier, and Buyer
 - Supplier profile management
 - Product categories
@@ -150,3 +151,14 @@ Planned backend features:
 - Infrastructure owns EF Core, Identity, SQL Server, JWT generation, and external implementations.
 - API owns HTTP concerns only: controllers, auth wiring, middleware, request context.
 - New feature work should include focused tests and documentation updates.
+
+## Current API Endpoints
+
+```text
+GET  /api/health
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/me
+```
+
+See [API documentation](docs/api.md) for request and response shapes.

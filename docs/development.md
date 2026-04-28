@@ -37,6 +37,37 @@ dotnet format EgyptB2B.slnx --verify-no-changes
 dotnet run --project src/EgyptB2B.Api --urls http://localhost:5088
 ```
 
+## Manual Auth Smoke Test
+
+After applying migrations and running the API, register a buyer:
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://localhost:5088/api/auth/register" `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body '{
+    "fullName": "Test Buyer",
+    "email": "buyer@example.com",
+    "phoneNumber": "+201001234567",
+    "password": "Password123",
+    "role": "Buyer"
+  }'
+```
+
+Login:
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://localhost:5088/api/auth/login" `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body '{
+    "email": "buyer@example.com",
+    "password": "Password123"
+  }'
+```
+
 ## EF Core
 
 This repo pins `dotnet-ef` through `dotnet-tools.json`.

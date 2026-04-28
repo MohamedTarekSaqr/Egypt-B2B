@@ -1,4 +1,5 @@
 using EgyptB2B.Application.Common.Interfaces;
+using EgyptB2B.Application.Features.Auth;
 using EgyptB2B.Infrastructure.Auth;
 using EgyptB2B.Infrastructure.Identity;
 using EgyptB2B.Infrastructure.Persistence;
@@ -42,6 +43,7 @@ public static class DependencyInjection
 
         services.AddSingleton<IDateTimeProvider, SystemDateTimeProvider>();
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddScoped<IAuthenticationService, IdentityAuthenticationService>();
 
         return services;
     }
